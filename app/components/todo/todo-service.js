@@ -14,11 +14,15 @@ let todoList = []
 
 export default class TodoService {
 
+
+
 	getTodos(draw) {
 		console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
-
+				todoList = res.data.data
+				console.log("ToDo Get", todoList)
+				// draw(res.data)
 			})
 			.catch(logError)
 	}
@@ -27,6 +31,8 @@ export default class TodoService {
 		// WHAT IS THIS FOR???
 		todoApi.post('', todo)
 			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				console.log("Add ToDo", todo)
+				return todo
 
 			})
 			.catch(logError)

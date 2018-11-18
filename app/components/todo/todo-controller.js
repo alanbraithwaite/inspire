@@ -20,6 +20,7 @@ function draw(todos) {
 
 export default class TodoController {
 	constructor() {
+		todoService.getTodos(draw)
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods
