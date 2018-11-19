@@ -1,7 +1,7 @@
 
 
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/YOURNAME/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/abraithwaite/todos/',
 	timeout: 3000
 });
 
@@ -22,39 +22,39 @@ export default class TodoService {
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
 				todoList = res.data.data
 				console.log("ToDo Get", todoList)
-				// draw(res.data)
+				draw(todoList)
 			})
 			.catch(logError)
 	}
 
-	addTodo(todo) {
+	addTodo(todo, getTodos) {
 		// WHAT IS THIS FOR???
-		todoApi.post('', todo)
-			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				console.log("Add ToDo", todo)
-				return todo
-
-			})
+		console.log("Posting new Todo")
+		let description = todo
+		todoApi.post('', { description })
+			// .then(this.getTodos(draw))
+			.then(getTodos)
+			// .then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
+			// 	console.log("Add ToDo", todo)
+			// this.getTodos(draw)
+			// })
 			.catch(logError)
 	}
 
-	toggleTodoStatus(todoId) {
+	toggleTodoStatus(todoId, getTodos) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
 		//STEP 1: Find the todo by its index **HINT** todoList
 
-		var todo = {} ///MODIFY THIS LINE
-
+		let todo = todoList.find(todo => todo._id === todoId)  ///MODIFY THIS LINE
+		todo.completed = !todo.completed;
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-		todoApi.put(todoId, todo)
-			.then(function (res) {
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
-			})
-			.catch(logError)
+		todoApi.put(todoId, todo).then(getTodos).catch(logError)
 	}
 
-	removeTodo() {
+	removeTodo(id, getTodos) {
 		// Umm this one is on you to write.... The method is a DELETE
-
+		console.log("removing the ID", id)
+		todoApi.delete(id).then(getTodos).catch(logError)
 	}
 
 }

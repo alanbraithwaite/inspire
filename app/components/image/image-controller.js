@@ -5,9 +5,9 @@ let imageService = new ImageService()
 
 function drawImage(image) {
   let template = ''
-
-  template = `url(${image.images[8].url})`
-  console.log(image.images[8].url)
+  let index = Math.floor(Math.random() * (image.images.length + 1));
+  template = `url(${image.images[index].url})`
+  console.log(image.images[index].url)
   document.getElementById("background").style.backgroundImage = template
 }
 
