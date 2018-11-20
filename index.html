@@ -9,26 +9,43 @@
 </head>
 
 <body id="body">
-	<div class="container" id="background">
-
-
-		<div id="weather">
-			Your Weather Template
+	<div class="container-fluid" id="background">
+		<div class="row">
+			<div class="col-auto">
+				<!-- <div class="row"> -->
+				<div class="col-auto">
+					<div id="weather">
+						Your Weather Template
+					</div>
+				</div>
+				<!-- </div> -->
+				<!-- <div class="row"> -->
+				<div class="col-auto quote">
+					<h5>Quote of the Day</h5>
+					<div id="quote">
+						The Quote
+					</div>
+				</div>
+				<!-- </div> -->
+			</div>
 		</div>
 
-		<div id="quote">
-			The Quote
-		</div>
-		<div id="todos" class="todos">
 
+		<footer>
+			<div class="row">
+				<div class="todos">
+					<div id="todo">
+						<form title="My TodoList" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+							<h5>My Todolist</h5>
+							<input type="text" name="todo">
+							<button type="submit">Add Todo</button>
+						</form>
+						<div id="todos"></div>
+					</div>
+				</div>
+			</div>
+		</footer>
 
-		</div>
-		<div id="todo">
-			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-				<input type="text" name="todo">
-				<button type="submit">Add Todo</button>
-			</form>
-		</div>
 	</div>
 
 

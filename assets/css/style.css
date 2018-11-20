@@ -1,5 +1,8 @@
 body, html{
   height: 100%;
+     background-repeat: no-repeat;
+   background-position: center; 
+   background-size: cover; 
 }
 
 
@@ -14,3 +17,24 @@ body, html{
    position: relative;
  
 }
+
+.todos{
+  color: white;
+  background-color: rgba(54, 53, 53, 0.123);
+  height: 15vh;
+}
+
+#weather {
+ color: white;
+  background-color: rgba(54, 53, 53, 0.123);
+  height: 10vh;
+  text-align: left;
+}
+
+
+.quote {
+ color: white;
+  background-color: rgba(54, 53, 53, 0.123);
+  height: 10vh;
+}
+
